@@ -92,7 +92,7 @@ class FlowTable():
     def dump_flow(self, br_name, flow_cond = None):
         if not br_name:
             raise ValueError('Bridge name is None')
-        cmd = 'ovs-ofctl dump-flows {0} \"{1}\"'.format(br_name, flow_cond if flow_cond else '')
+        cmd = 'sudo ovs-ofctl dump-flows {0} \"{1}\"'.format(br_name, flow_cond if flow_cond else '')
         result, error = execute.exec_cmd(cmd)
         flows = []
         if not error:
